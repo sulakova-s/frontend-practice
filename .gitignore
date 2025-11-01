@@ -1,0 +1,42 @@
+# Системные файлы MacOS
+.DS_Store
+
+# Папка зависимостей Node.js
+node_modules/
+
+# Файлы окружения
+.env
+.env.local
+
+# Логи
+*.log
+npm-debug.log*
+
+# IDE файлы
+.vscode/
+.idea/
+
+# Временные файлы
+*.tmp
+*.temp
+
+# Дополнения для фронтенда
+dist/
+build/
+*.tar.gz
+*.zip
+
+# Кэш пакетных менеджеров
+.cache/
+.parcel-cache/
+
+# Дополнительно для Mac
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Файлы операционных систем
+Thumbs.db
+ehthumbs.db
