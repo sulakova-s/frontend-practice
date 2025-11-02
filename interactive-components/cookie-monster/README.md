@@ -1,5 +1,3 @@
-так? 
-
 # Cookie Monster - Interactive Eye Tracking Demo
 
 A web implementation featuring eye-tracking mechanics with cross-eye effect.
