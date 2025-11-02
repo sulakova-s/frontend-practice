@@ -2,6 +2,9 @@
 
 A web implementation featuring eye-tracking mechanics with cross-eye effect.
 
+## Live Demo
+- GitHub Pages: https://sulakova-s.github.io/frontend-practice/
+
 ## Key Features
 - Eye tracking - Pupils follow cursor movement
 - Cross-eye effect - Eyes converge when cursor is close to face
