@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <!-- 1g -->
+    <script src="https://unpkg.com/supersimpledev@8.6.4/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      //1a: create a button with the text "Good job!"
+      const button = <button>Good job!</button>;
+      //1b: create a paragraph with the text "My name is [NAME]"
+      const paragraph = <p>My name is Santa</p>;
+      //1c: design from screenshot
+      const div = (
+        <div>
+          <p>Cotton socks</p>
+          <p>Price: 10$</p>
+          <button>Add to cart</button>
+        </div>
+      );
+      //1d: 1 pack of socks ($10) + 2 t-shirts ($8 each)
+      const productCost = 1 * 10 + 2 * 8;
+      console.log(productCost);
+      //1e: display cost
+      const cost = <p>Product cost: ${productCost}</p>;
+      //1f: cost with shipping
+      const shippingCost = 5;
+      const divCosts = (
+        <div>
+          <p>Product cost: ${productCost}</p>
+          <p>Shipping cost: ${shippingCost}</p>
+          <p>Total cost: ${productCost + shippingCost}</p>
+        </div>
+      );
+      //1g: loading DayJS
+      console.log(dayjs().format("MMMM D"));
+      //1h: display date
+      const date = <p>Today is {dayjs().format("MMMM D")}</p>;
+      //1i: display time
+      const curTime = <p>Current time: {dayjs().format("HH:mm:ss")}</p>;
+
+      const container = document.querySelector(".js-container");
+
+      //1i
+      // ReactDOM.createRoot(container).render(curTime);
+      const root = ReactDOM.createRoot(container);
+
+      //1j: сreate a clock
+      setInterval(() => {
+        root.render(
+          <div>
+            <div className="task-group">
+              <h1>Basic Tasks (1a-1c)</h1>
+              {button}
+              {paragraph}
+              {div}
+            </div>
+
+            <div className="task-group">
+              <h1>Cost Tasks (1d-1f)</h1>
+              {cost}
+              {divCosts}
+            </div>
+
+            <div className="task-group">
+              <h1>Date & Time (1g-1j)</h1>
+              {date}
+              <p>Current time: {dayjs().format("HH:mm:ss")}</p>
+            </div>
+          </div>,
+        );
+      }, 1000);
+    </script>
+  </body>
+</html>
