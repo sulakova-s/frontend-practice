@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Website</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      // 2a: create a paragraph "Hello, welcome to my website"
+      // 2b: create a buttons "Login" and "Sign up"
+      // 2c: create a text boxes "Email" and "Password"
+      // 2d: create a component "LoginForm"
+      function LoginForm() {
+        return (
+          <>
+            <p>Hello, welcome to my Website</p>
+            <div>
+              <input placeholder="Email" />
+            </div>
+            <div>
+              <input placeholder="Password" type="password" />
+            </div>
+            <button>Login</button>
+            <button>Sign up</button>
+          </>
+        );
+      }
+
+      // 2a: create an `<App>` component
+      function App() {
+        return <LoginForm />;
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

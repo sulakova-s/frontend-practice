@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Product List</title>
+    <style>
+      .product-container {
+        display: flex;
+        gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      // 2f: create "ProductDetails" component
+      // 2g: add "discountPrice" prop
+      // 2h: if a product has a discount, cross out the original price using `<del>` tags
+      // 2i: update the previous exercise to use a **ternary operator** in JSX
+        // also added color for discount price + props inStock
+      // 2j: add images  
+      function ProducDetails({ name, price, discountPrice, inStock, imgSrc }) {
+        return (
+          <div>
+            <div>
+              <img src={imgSrc} width="200" />
+            </div>
+            <p>{name}</p>
+            <p>
+              Price:{" "}
+              {discountPrice ? (
+                <del style={{ color: "grey" }}>${price}</del>
+              ) : (
+                `$${price}`
+              )}
+            </p>
+            {discountPrice && <p>Discount price: ${discountPrice}</p>}
+            <p style={{ color: inStock ? "green" : "red" }}>
+              {inStock ? "In stock" : "Out of stock"}
+            </p>
+            <button disabled={!inStock}>Add to Cart</button>
+          </div>
+        );
+      }
+
+      // 2e: create an `<App>` component
+      function App() {
+        return (
+          //2f: display 3 products: socks, tennis balls, and t-shirt
+          <div className="product-container">
+            <ProducDetails
+              name="Cotton socks"
+              price="10.90"
+              //2g: add "discountPrice" prop
+              discountPrice="5.45"
+              inStock={true}
+              imgSrc="../resourses/cotton-socks.png"
+            />
+            <ProducDetails
+              name="Tennis balls"
+              price="6.00"
+              inStock={true}
+              imgSrc="../resourses/tennis-balls.png"
+            />
+            <ProducDetails
+              name="Plain T-shirt"
+              price="7.99"
+              inStock={false}
+              imgSrc="../resourses/plain-t-shirt.png"
+            />
+          </div>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
