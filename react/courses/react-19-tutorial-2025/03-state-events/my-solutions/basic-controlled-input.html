@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Сontrolled input</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      // 3g: add <input> which would affect on <p>
+      function App() {
+        const [inputText, setInputText] = React.useState("");
+
+        function putName() {
+          setInputText(event.target.value);
+        }
+
+        // 3h: add Reset and Example buttons
+        function resetInputText() {
+          setInputText("");
+        }
+
+        function showExample() {
+          setInputText("Alice");
+        }
+
+        return (
+          <>
+            <input
+              value={inputText}
+              onChange={putName}
+              placeholder="Type a name here"
+            />
+            <button onClick={resetInputText}>Reset</button>
+            <button onClick={showExample}>Example</button>
+
+            <p>Hello {inputText}</p>
+          </>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

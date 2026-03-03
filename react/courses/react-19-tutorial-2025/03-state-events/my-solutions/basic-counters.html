@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Counters</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      // 3d: create a component
+      function IndependentCounter() {
+        // 3a, 3b: create buttton with 'Clicked [number] times' onClick
+        const [count, setCount] = React.useState(0);
+
+        function countClicks() {
+          console.log("Clicked");
+
+          let newCount = count + 1;
+          setCount(newCount);
+        }
+
+        // 3c: if it's 1 time then 'Clicked [number] timE'
+        return (
+          <>
+            <button onClick={countClicks}>
+              Clicked {count} {count === 1 ? "time" : "times"}
+            </button>
+          </>
+        );
+      }
+
+      // 3e: share count between counters
+      function SharedCounter({ count, setCount }) {
+        function countClicks() {
+          console.log("Clicked");
+
+          let newCount = count + 1;
+          setCount(newCount);
+        }
+
+        return (
+          <>
+            <button onClick={countClicks}>
+              Clicked {count} {count === 1 ? "time" : "times"}
+            </button>
+          </>
+        );
+      }
+
+      function App() {
+        const [count, setCount] = React.useState(0);
+
+        // 3f: create a reset button
+        function resetCounters() {
+          setCount(0);
+        }
+
+        return (
+          <>
+            <h1>Independent counters</h1>
+            <IndependentCounter />
+            <IndependentCounter />
+
+            <h1>Shared counter</h1>
+            <SharedCounter count={count} setCount={setCount} />
+            <SharedCounter count={count} setCount={setCount} />
+            <button onClick={resetCounters}>Reset</button>
+          </>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
