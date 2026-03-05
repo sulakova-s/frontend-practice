@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Login form</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      .title {
+        font-size: 28px;
+      }
+
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .form-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 3px;
+        margin-bottom: 10px;
+      }
+
+      .form-pass {
+        display: flex;
+        gap: 10px;
+      }
+
+      .form-pass input {
+        flex-grow: 1;
+      }
+
+      input {
+        border: 1.5px solid grey;
+        border-radius: 5px;
+        padding: 12px 16px;
+        max-width: 225px;
+      }
+
+      .login-buttons {
+        display: flex;
+        gap: 5px;
+      }
+
+      button {
+        max-width: 125px;
+        background-color: rgb(0, 123, 255);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        // 4d: create Login Form with State
+        // 4e: add  Show/Hide Password Button
+        const [showPassword, setShowPassword] = React.useState(false);
+
+        return (
+          <div>
+            <p className="title">Hello, welcome to my website</p>
+            <div className="login-form">
+              <div className="form-fields">
+                <input placeholder="Email"></input>
+                <div className="form-pass">
+                  <input
+                    placeholder="Password"
+                    type={showPassword ? "text" : "password"}
+                  ></input>
+                  <button
+                    onClick={() => {
+                      setShowPassword(!showPassword);
+                    }}
+                  >
+                    {showPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
+              <div className="login-buttons">
+                <button>Login</button>
+                <button>Sign up</button>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

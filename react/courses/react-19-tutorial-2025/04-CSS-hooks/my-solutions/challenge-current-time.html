@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Current Time</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      .title {
+        font-size: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev@8.6.4/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        // 4f: create clock with useState + useEffect
+        const [time, setTime] = React.useState("");
+
+        // 4g: experiment with useEffect dependency array
+        // With [] — runs once (on mount), "run code" logs once per second
+        // Without [] — runs on every render, creates new interval each time => "run code" floods console
+        React.useEffect(() => {
+          setInterval(() => {
+            setTime(dayjs().format("HH:mm:ss"));
+          }, 1000);
+          console.log("run code");
+        }, []);
+
+        return (
+          <div>
+            <p className="title">Current time: {time}</p>
+          </div>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
