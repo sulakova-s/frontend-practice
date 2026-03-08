@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.calculator {
+  display: flex;
+  height: 321px;
+  width: 231px;
+  background: #525150;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.35), 0 12px 25px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -1px 0 rgba(0, 0, 0, 0.45);
+
+  border-radius: 4%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 0.5px solid #949392;
+}
+
+/* WINDOW CONTROLS BUTTONS */
+.header-buttons {
+  padding: 0.29em 0 0 0.5em;
+}
+
+.header-buttons button {
+  height: 12px;
+  width: 12px;
+  margin-right: 0.3em;
+  border-radius: 50%;
+  border: none;
+}
+
+.red-button {
+  background: #ed6a5e;
+  position: relative;
+  box-shadow: 0px 1px 6px -2px #333333;
+}
+
+.yellow-button {
+  background: #f5bf4f;
+  box-shadow: 0px 1px 6px -2px #333333;
+}
+
+.green-button {
+  background: #62c554;
+  box-shadow: 0px 1px 6px -2px #333333;
+}
+
+/* DISPLAY */
+.display {
+  padding: 0 0.65em 0 0;
+  border: 1px solid none;
+  background: linear-gradient(#525150, #4f4e4c);
+}
+
+.display output {
+  display: block;
+  background: none;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, sans-serif;
+  font-weight: 100;
+  font-size: 48px;
+  width: 100%;
+  text-align: right;
+  border: none;
+  outline: none;
+}
+
+/* CALCULATOR BUTTONS LAYOUT */
+.buttons {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #525150;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  flex: 1;
+  gap: 1px;
+}
+
+.row button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: #ebebeb;
+  background: #7d7c7b;
+
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  position: relative;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); 
+}
+
+/* Top row special buttons (AC, +/-, %) */
+.buttons .row:nth-child(1) button:nth-child(-n + 3) {
+  font-size: 18px;
+  font-weight: 400;
+  background: #636261;
+}
+
+/* Zero button - spans 2 columns */
+.row:last-child button:first-child {
+  grid-column: 1 / span 2;
+  padding-left: 5px;
+}
+
+/* Orange operator buttons (÷, ×, -, +, =) */
+.row button:last-child {
+  background: #ff9f21;
+}

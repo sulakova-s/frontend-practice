@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="calculator" role="application" aria-label="Calculator">
+        <header class="calculator-header">
+          <div class="header-buttons" aria-hidden="true">
+            <button class="red-button"></button>
+            <button class="yellow-button"></button>
+            <button class="green-button"></button>
+          </div>
+        </header>
+
+        <div class="display">
+          <output
+            id="calc-display"
+            role="status"
+            aria-live="polite"
+            tabindex="0"
+          >
+            0
+          </output>
+        </div>
+
+        <div class="buttons">
+          <div class="row" role="group" aria-label="First row">
+            <button class="special-buttons" aria-label="All clear">AC</button>
+            <button
+              class="special-buttons"
+              aria-label="Toggle positive/negative"
+            >
+              +/-
+            </button>
+            <button class="special-buttons" aria-label="Percentage">%</button>
+
+            <button aria-label="Divide">÷</button>
+          </div>
+
+          <div class="row" role="group" aria-label="Second row">
+            <button aria-label="7">7</button>
+            <button aria-label="8">8</button>
+            <button aria-label="9">9</button>
+
+            <button aria-label="Multiply">×</button>
+          </div>
+
+          <div class="row" role="group" aria-label="Third row">
+            <button aria-label="4">4</button>
+            <button aria-label="5">5</button>
+            <button aria-label="6">6</button>
+            <button aria-label="Subtract">-</button>
+          </div>
+
+          <div class="row" role="group" aria-label="Fourth row">
+            <button aria-label="1">1</button>
+            <button aria-label="2">2</button>
+            <button aria-label="3">3</button>
+            <button aria-label="Add">+</button>
+          </div>
+
+          <div class="row" role="group" aria-label="Fifth row">
+            <button class="zero" aria-label="0">0</button>
+
+            <button aria-label="Decimal point">,</button>
+            <button aria-label="Equals">=</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
