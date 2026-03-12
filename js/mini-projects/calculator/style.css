@@ -15,8 +15,11 @@ body {
   width: 231px;
   background: #525150;
   backdrop-filter: blur(10px);
-  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.35), 0 12px 25px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -1px 0 rgba(0, 0, 0, 0.45);
+  box-shadow:
+    0 40px 70px rgba(0, 0, 0, 0.35),
+    0 12px 25px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.45);
 
   border-radius: 4%;
   flex-direction: column;
@@ -58,16 +61,23 @@ body {
   padding: 0 0.65em 0 0;
   border: 1px solid none;
   background: linear-gradient(#525150, #4f4e4c);
+  height: 60px;
+
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
 }
 
 .display output {
   display: block;
   background: none;
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    sans-serif;
   font-weight: 100;
   font-size: 48px;
+
   width: 100%;
   text-align: right;
   border: none;
@@ -92,8 +102,9 @@ body {
 }
 
 .row button {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    sans-serif;
   font-weight: 400;
   font-size: 22px;
   color: #ebebeb;
@@ -104,7 +115,7 @@ body {
   transition: all 0.15s ease;
   user-select: none;
   position: relative;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* Top row special buttons (AC, +/-, %) */

@@ -10,6 +10,14 @@ const buttons = document.querySelectorAll(".buttons button");
 
 function updateDisplay() {
   display.textContent = currentDisplay;
+
+  if (currentDisplay.length > 9) {
+    display.style.fontSize = "32px";
+  } else if (currentDisplay.length > 7) {
+    display.style.fontSize = "40px";
+  } else {
+    display.style.fontSize = "48px";
+  }
 }
 
 function handleDigit(digit) {
@@ -31,6 +39,10 @@ function handleOperator(nextOperator) {
     return;
   }
 
+  if (currentDisplay === "Error") {
+    return;
+  }
+
   const inputValue = parseFloat(currentDisplay);
 
   if (firstOperand === null) {
@@ -46,13 +58,16 @@ function handleOperator(nextOperator) {
 }
 
 function calculate(a, b, operator) {
-  if (operator === "+") return a + b;
-  if (operator === "-") return a - b;
-  if (operator === "×") return a * b;
+  let result = 0;
+  if (operator === "+") result = a + b;
+  if (operator === "-") result = a - b;
+  if (operator === "×") result = a * b;
   if (operator === "÷") {
     if (b === 0) return "Error";
-    return a / b;
+    result = a / b;
   }
+
+  return parseFloat(result.toFixed(10)).toString();
 }
 
 function handleEquals() {
@@ -141,43 +156,40 @@ buttons.forEach((button) => {
 // Keyboard support
 document.addEventListener("keydown", (event) => {
   const key = event.key;
-  
+
   // Digits
   if (key >= "0" && key <= "9") {
     handleDigit(key);
   }
-  
+
   // Operators
   else if (key === "+") {
     handleOperator("+");
-  }
-  else if (key === "-") {
+  } else if (key === "-") {
     handleOperator("-");
-  }
-  else if (key === "*") {
+  } else if (key === "*") {
     handleOperator("×");
-  }
-  else if (key === "/") {
-    event.preventDefault(); 
+  } else if (key === "/") {
+    event.preventDefault();
     handleOperator("÷");
   }
-  
+
   // Point
   else if (key === ".") {
     handleDecimal();
   }
-  
+
   // Equals/Ent
   else if (key === "=" || key === "Enter") {
-    event.preventDefault(); 
+    event.preventDefault();
     handleEquals();
   }
-  
+
   // Esc
   else if (key === "Escape") {
     handleClear();
   }
-  
+
   // Percent
   else if (key === "%") {
     handlePercent();
